@@ -1,32 +1,28 @@
 # Zen Store
 
 ## Current State
-New project — no existing code.
+Anime-inspired store with red/black theme, cinematic effects. Products are hardcoded in `FALLBACK_PRODUCTS` in `ProductsSection.tsx`. The backend already has full CRUD APIs: `addProduct`, `updateProduct`, `removeProduct`, `getAllProducts`. There is no admin UI.
 
 ## Requested Changes (Diff)
 
 ### Add
-- Landing page hero section with bold anime-inspired red/black aesthetic
-- Animated background with dynamic visual effects (particles, glitch, motion elements)
-- Navigation bar with store logo "ZEN" and nav links
-- Featured products section with grid layout
-- Live action themed banner section with cinematic feel
-- About/vibe section with anime-style typography
-- Footer with store info
+- Password-protected admin page at `/admin` route
+- Admin login screen with a simple password gate (hardcoded password)
+- Product list view: table of all products with edit/delete actions
+- Add product form: name, price, category, description, imageUrl, stock, featured toggle
+- Edit product form: pre-filled with existing product data
+- Delete confirmation dialog
+- Nav link or hidden route to `/admin`
 
 ### Modify
-N/A
+- `App.tsx`: add routing (react-router or simple state-based routing) to show admin page
+- `Navbar.tsx`: add hidden `/admin` link in footer or small text link
 
 ### Remove
-N/A
+- Nothing
 
 ## Implementation Plan
-1. Generate Motoko backend with product catalog (name, price, description, category, stock)
-2. Build frontend with:
-   - Full-screen animated hero with red/black anime aesthetic
-   - Cinematic live-action style banner
-   - Product grid fetched from backend
-   - Animated UI elements (glitch text, particle effects via CSS)
-   - Bold typography and dramatic layout
-   - Navigation with ZEN branding
-   - Footer
+1. Add simple client-side routing (hash-based or state) to switch between main site and admin page
+2. Build `AdminPage.tsx` with password gate, product table, add/edit form, delete dialog
+3. Wire to backend: `getAllProducts`, `addProduct`, `updateProduct`, `removeProduct`
+4. Add a small discreet "Admin" link in the footer

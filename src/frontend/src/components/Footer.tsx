@@ -84,7 +84,7 @@ export default function Footer() {
           }}
         />
 
-        {/* Copyright */}
+        {/* Copyright + Admin link */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center">
           <p className="font-body text-xs text-muted-foreground">
             © {year} ZEN STORE. All rights reserved.
@@ -100,6 +100,15 @@ export default function Footer() {
               caffeine.ai
             </a>
           </p>
+          <button
+            type="button"
+            onClick={() => {
+              window.location.hash = "#admin";
+            }}
+            className="font-body text-xs text-muted-foreground/40 hover:text-muted-foreground transition-colors"
+          >
+            Admin
+          </button>
         </div>
       </div>
     </footer>
