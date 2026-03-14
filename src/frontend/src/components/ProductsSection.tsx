@@ -11,43 +11,44 @@ import type { Product } from "../backend.d";
 const FALLBACK_PRODUCTS: Product[] = [
   {
     id: 1n,
-    name: "Dragon Soul Hoodie",
-    priceCents: 8999n,
-    category: "Hoodies",
-    description: "Embroidered red dragon, heavyweight fleece",
-    imageUrl: "/assets/generated/zen-product-hoodie.dim_600x600.jpg",
+    name: "Samurai Warrior Figure",
+    priceCents: 7999n,
+    category: "Figures",
+    description: "Premium PVC anime samurai figure, 25cm, dynamic battle pose",
+    imageUrl: "/assets/generated/zen-product-figure.dim_600x600.jpg",
     featured: true,
-    stock: 15n,
+    stock: 12n,
   },
   {
     id: 2n,
-    name: "Katana Strike Tee",
-    priceCents: 4599n,
-    category: "T-Shirts",
-    description: "Kanji warrior graphic, 100% cotton",
-    imageUrl: "/assets/generated/zen-product-tshirt.dim_600x600.jpg",
+    name: "Black Dragon Katana",
+    priceCents: 12999n,
+    category: "Weapons",
+    description:
+      "Hand-crafted replica katana, black & red handle, engraved blade",
+    imageUrl: "/assets/generated/zen-product-katana.dim_600x600.jpg",
     featured: true,
-    stock: 24n,
+    stock: 8n,
   },
   {
     id: 3n,
-    name: "Shadow Warrior Joggers",
-    priceCents: 6999n,
-    category: "Bottoms",
-    description: "Tapered fit, red stripe detail",
-    imageUrl: "/assets/generated/zen-product-pants.dim_600x600.jpg",
+    name: "Demon Slayer Wall Scroll",
+    priceCents: 2499n,
+    category: "Collectibles",
+    description: "High-quality fabric wall scroll, bamboo rods, 60x90cm",
+    imageUrl: "/assets/generated/zen-product-scroll.dim_600x600.jpg",
     featured: true,
-    stock: 18n,
+    stock: 25n,
   },
   {
     id: 4n,
-    name: "Oni Mask Cap",
-    priceCents: 3499n,
-    category: "Accessories",
-    description: "Embroidered demon mask, structured fit",
-    imageUrl: "/assets/generated/zen-product-cap.dim_600x600.jpg",
+    name: "Manga Vol. 1–5 Box Set",
+    priceCents: 3999n,
+    category: "Manga",
+    description: "Complete starter manga collection, premium print quality",
+    imageUrl: "/assets/generated/zen-product-manga.dim_600x600.jpg",
     featured: true,
-    stock: 30n,
+    stock: 20n,
   },
 ];
 
@@ -83,13 +84,13 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
         <img
           src={
             product.imageUrl ||
-            "/assets/generated/zen-product-hoodie.dim_600x600.jpg"
+            "/assets/generated/zen-product-figure.dim_600x600.jpg"
           }
           alt={product.name}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           onError={(e) => {
             (e.target as HTMLImageElement).src =
-              "/assets/generated/zen-product-hoodie.dim_600x600.jpg";
+              "/assets/generated/zen-product-figure.dim_600x600.jpg";
           }}
         />
         {product.featured && (
@@ -100,7 +101,6 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
             </Badge>
           </div>
         )}
-        {/* Hover overlay */}
         <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300" />
       </div>
 
@@ -148,7 +148,6 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
         </div>
       </div>
 
-      {/* Bottom glow line */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-primary/0 group-hover:bg-primary transition-colors duration-300" />
     </motion.div>
   );
